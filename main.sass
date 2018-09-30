@@ -1,0 +1,278 @@
+$softgreen: #51DDD3
+$softblue: #79b7ee
+$violet: #adb4cf
+$border-color: #E6EAEA
+
+@font-face
+    font-family: "MuseoBold"
+    src: url("../font/MuseoSansCyrl-900/MuseoSansCyrl-900.eot") format("eot"), url("../font/MuseoSansCyrl-900/MuseoSansCyrl-900.svg") format("svg"), url("../font/MuseoSansCyrl-900/MuseoSansCyrl-900.ttf") format('truetype'), url("../font/MuseoSansCyrl-900/MuseoSansCyrl-900.woff") format('woff')
+
+@font-face
+    font-family: "MuseoMedium"
+    src:  url("../font/MuseoSansCyrl-500/MuseoSansCyrl-500.eot") format("eot"), url("../font/MuseoSansCyrl-500/MuseoSansCyrl-500.svg") format("svg"), url("../font/MuseoSansCyrl-500/MuseoSansCyrl-500.ttf") format('truetype'), url("../font/MuseoSansCyrl-500/MuseoSansCyrl-500.woff") format('woff')
+
+@font-face
+    font-family: "MuseoRegular"
+    src:  url("../font/MuseoSansCyrl-300/MuseoSansCyrl-300.eot") format("eot"), url("../font/MuseoSansCyrl-300/MuseoSansCyrl-300.svg") format("svg"), url("../font/MuseoSansCyrl-300/MuseoSansCyrl-300.ttf") format('truetype'), url("../font/MuseoSansCyrl-300/MuseoSansCyrl-300.woff") format('woff')
+
+
+body
+  font-family: 'MuseoRegular', sans-serif
+  background-color: #fafafa
+  overflow-x: hidden
+.header
+  height: 60px
+  background-color: #fff
+  -webkit-box-shadow: 0px 3px 18px 0px rgba(184,182,184,0.75)
+  -moz-box-shadow: 0px 3px 18px 0px rgba(184,182,184,0.75)
+  box-shadow: 0px 3px 18px 0px rgba(184,182,184,0.75)
+  &--content
+    display: flex
+    justify-content: space-between
+    // align-items: center
+    height: 100%
+  &--menu-btn
+    position: relative
+    width: 30px
+    height: 23px
+    &-block
+      position: relative
+      display: inline-block
+      display: flex
+      align-items: center
+      padding: 0 20px
+      border-right: 1px solid $border-color
+      cursor: pointer
+      &:hover
+        .bar
+          &:after
+            width: 100%
+          &:nth-child(1)
+            &:after
+              transition-duration: .2s
+          &:nth-child(2)
+            &:after
+              transition-duration: .6s
+          &:nth-child(3)
+            &:after
+              transition-duration: .4s
+          &:nth-child(4)
+            &:after
+              transition-duration: .3s
+          &:nth-child(5)
+            &:after
+              transition-duration: .8s
+    .bar
+      position: absolute
+      width: 100%
+      height: 3px
+      background-color: #202121
+      border-radius: 2px
+      overflow: hidden
+      transition: all .3s
+      &:last-child
+        margin-bottom: 0
+      &:after
+        position: absolute
+        content: ""
+        top: 0
+        right: 0
+        height: 100%
+        width: 0
+        background-color: gray
+        transition: all .2s
+      &:nth-child(1)
+        width: 30px
+        top: 0
+      &:nth-child(2)
+        width: 15px
+        top: 5px
+      &:nth-child(3)
+        top: 10px
+        width: 26px
+      &:nth-child(4)
+        top: 15px
+        width: 20px
+      &:nth-child(5)
+        top: 20px
+        width: 13px
+    &.active
+      position: relative
+      .bar
+        &:nth-child(2), &:nth-child(4)
+          opacity: 0
+          transform: translateX(-100%)
+        &:nth-child(3)
+          opacity: 0
+          transform: translateX(100%)
+        &:nth-child(1), &:nth-child(5)
+          position: absolute
+          width: 30px
+          &:after
+            transition-duration: .2s
+        &:nth-child(1)
+          transform: rotate(45deg) translateY(-50%)
+          top: 47%
+        &:nth-child(5)
+          transform: rotate(-45deg) translateY(50%)
+          top: 39%
+  &--auth
+    display: flex
+    align-items: center
+    padding: 0 20px
+    border-left: 1px solid $border-color
+  .user-block
+    display: none
+    &--avatar
+      cursor: pointer
+      width: 30px
+      height: 30px
+      path
+        fill: #c8c8ce
+.first-slide
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 60px  20px
+  h1
+    margin-bottom: 60px
+  .choice
+    display: flex
+    width: 100%
+    justify-content: space-around
+    &-item
+      display: flex
+      flex-direction: column
+      align-items: center
+      background-color: #fff
+      border-radius: 3px
+      border: 1px solid #eee
+      padding: 20px
+      -webkit-box-shadow: -2px 0px 58px -26px rgba(0,0,0,0.68)
+      -moz-box-shadow: -2px 0px 58px -26px rgba(0,0,0,0.68)
+      box-shadow: -2px 0px 58px -26px rgba(0,0,0,0.68)
+      svg
+        max-width: 200px
+        height: 170px
+        margin-top: 15px
+.second-slide
+  display: flex
+  justify-content: center
+  width: auto
+  padding: 50px  20px
+  &--right
+    width: 40%
+  &--left
+    display: flex
+    align-items: flex-end
+    border-radius: 3px
+    padding: 20px
+    margin-bottom: 10px
+    -webkit-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    -moz-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    overflow: hidden
+    background: rgba(80,220,211,1)
+    background: -moz-linear-gradient(top, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(80,220,211,1)), color-stop(99%, rgba(124,183,238,1)), color-stop(100%, rgba(124,183,238,1)))
+    background: -webkit-linear-gradient(top, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: -o-linear-gradient(top, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: -ms-linear-gradient(top, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: linear-gradient(to bottom, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    &-text
+      transform: rotate(-90deg)
+      -ms-transform: rotate(-90deg)
+      -moz-transform: rotate(-90deg)
+      -webkit-transform: rotate(-90deg)
+      height: max-content
+      margin-bottom: 40px
+      color: #fff
+      font-size: 20px
+  &--category
+    display: flex
+    align-items: center
+    background-color: #fff
+    border-radius: 3px
+    border: 1px solid #eee
+    padding: 15px 20px
+    margin: 0 0 10px 20px
+    -webkit-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    -moz-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    svg
+      width: 50px
+      height: 50px
+      margin-right: 20px
+.third-slide
+  display: flex
+  justify-content: center
+  padding: 50px 20px
+  &--sity-wrapper
+    max-width: 50%
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+  &--sity
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 40%
+    background-color: #fff
+    border-radius: 3px
+    border: 1px solid #eee
+    padding: 15px 20px
+    margin: 0 10px 20px
+    -webkit-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    -moz-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    img
+      width: 100%
+      max-width: 150px
+    p
+      margin: 15px 0 0
+    span
+      font-size:
+  &--sity-name
+    font-size: 24px
+    color: #777
+  &--right
+    display: flex
+    background: rgba(80,220,211,1)
+    background: -moz-linear-gradient(45deg, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(80,220,211,1)), color-stop(99%, rgba(124,183,238,1)), color-stop(100%, rgba(124,183,238,1)))
+    background: -webkit-linear-gradient(45deg, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: -o-linear-gradient(45deg, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: -ms-linear-gradient(45deg, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    background: linear-gradient(45deg, rgba(80,220,211,1) 0%, rgba(124,183,238,1) 99%, rgba(124,183,238,1) 100%)
+    border-radius: 3px
+    padding: 20px
+    margin-bottom: 20px
+    -webkit-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    -moz-box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    box-shadow: 10px 10px 58px -26px rgba(0,0,0,0.68)
+    overflow: hidden
+    &-text
+      transform: rotate(90deg)
+      -ms-transform: rotate(90deg)
+      -moz-transform: rotate(90deg)
+      -webkit-transform: rotate(90deg)
+      height: max-content
+      margin-top: 40px
+      color: #fff
+      font-size: 20px
+
+.circle
+  display: block
+  float: left
+  height: 50px
+
+circle
+  fill: rgba(0,0,0,0)
+  stroke: #eee
+  stroke-width: 6
+  stroke-dasharray: 408px 408px
+
+circle:nth-child(2n)
+  fill: rgba(0,0,0,0)
+  stroke: $softgreen
+  stroke-width: 6
